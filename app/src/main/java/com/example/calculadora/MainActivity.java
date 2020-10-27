@@ -243,5 +243,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        buttonBorrar = findViewById(R.id.btnBorrar);
+        buttonBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (textAnterior.length() > 0) {
+                    String nuevoTexto = textAnterior.substring(0, textAnterior.length()-1);
+                    textResult.setText(nuevoTexto);
+                }
+            }
+        });
     }
 }

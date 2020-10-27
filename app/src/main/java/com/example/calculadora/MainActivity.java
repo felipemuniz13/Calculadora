@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Clear
         buttonClear = findViewById(R.id.btnClear);
         buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Sumar
         buttonMas = findViewById(R.id.btnSumar);
         buttonMas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Restar
         buttonMenos = findViewById(R.id.btnRestar);
         buttonMenos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Multiplicar
         buttonPor = findViewById(R.id.btnMultiplicar);
         buttonPor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Dividir
         buttonEntre = findViewById(R.id.btnDividir);
         buttonEntre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Botón Borrar
         buttonBorrar = findViewById(R.id.btnBorrar);
         buttonBorrar.setOnClickListener(new View.OnClickListener() {
             @Override

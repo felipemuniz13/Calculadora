@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //PANTALLA PARA EL RESULTADO
     private TextView textResult;
+
+    //BOTONES DE LOS NUMEROS
     private Button buttonZero;
     private Button buttonOne;
     private Button buttonTwo;
@@ -20,7 +23,21 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSeven;
     private Button buttonEight;
     private Button buttonNine;
+
+    //BOTONES QUE GENERAN EVENTOS
     private Button buttonClear;
+    private Button buttonResult;
+    private Button buttonMas;
+    private Button buttonMenos;
+    private Button buttonPor;
+    private Button buttonEntre;
+    private Button buttonBorrar;
+
+    //BOOLEANOS
+    private boolean clickSignoMas;
+    private boolean clickSignoMenos;
+    private boolean clickSignoPor;
+    private boolean clickSignoEntre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "1");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -53,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "2");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -62,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "3");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -71,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "4");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -79,7 +112,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
-                textResult.setText(textAnterior + "5");            }
+                textResult.setText(textAnterior + "5");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
+            }
         });
 
         buttonSix = findViewById(R.id.btnNum6);
@@ -88,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "6");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -97,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "7");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -106,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "8");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -115,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "9");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
             }
         });
 
@@ -123,6 +177,70 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textResult.setText("");
+                clickSignoMas = false;
+                clickSignoMenos = false;
+                clickSignoPor = false;
+                clickSignoEntre = false;
+            }
+        });
+
+        buttonMas = findViewById(R.id.btnSumar);
+        buttonMas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (textAnterior.trim().length() > 0 && clickSignoMas == false) {
+                    textResult.setText(textAnterior + "+");
+                    clickSignoMas = true;
+                    clickSignoMenos = true;
+                    clickSignoPor = true;
+                    clickSignoEntre = true;
+                }
+            }
+        });
+
+        buttonMenos = findViewById(R.id.btnRestar);
+        buttonMenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (textAnterior.trim().length() == 0 || clickSignoMenos == false) {
+                    textResult.setText(textAnterior + "-");
+                    clickSignoMas = true;
+                    clickSignoMenos = true;
+                    clickSignoPor = true;
+                    clickSignoEntre = true;
+                }
+            }
+        });
+
+        buttonPor = findViewById(R.id.btnMultiplicar);
+        buttonPor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (textAnterior.trim().length() > 0 && clickSignoPor == false) {
+                    textResult.setText(textAnterior + "x");
+                    clickSignoMas = true;
+                    clickSignoMenos = true;
+                    clickSignoPor = true;
+                    clickSignoEntre = true;
+                }
+            }
+        });
+
+        buttonEntre = findViewById(R.id.btnDividir);
+        buttonEntre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (textAnterior.trim().length() > 0 && clickSignoEntre == false) {
+                    textResult.setText(textAnterior + "÷");
+                    clickSignoMas = true;
+                    clickSignoMenos = true;
+                    clickSignoPor = true;
+                    clickSignoEntre = true;
+                }
             }
         });
     }

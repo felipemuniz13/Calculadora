@@ -52,25 +52,13 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="+/-"
-                android:textSize="40dp"
+                android:layout_weight="4"
+                android:text="Borrar"
+                android:textSize="35dp"
                 android:layout_margin="1dp"
                 android:textColor="@color/colorBlack"
                 android:background="@color/colorGrayDark"
-                android:id="@+id/btnMasMenos">
-            </Button>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="%"
-                android:textSize="40dp"
-                android:layout_margin="1dp"
-                android:textColor="@color/colorBlack"
-                android:background="@color/colorGrayDark"
-                android:id="@+id/btnPorcentaje">
+                android:id="@+id/btnBorrar">
             </Button>
 
             <Button
@@ -134,7 +122,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="*"
+                android:text="x"
                 android:textSize="40dp"
                 android:layout_margin="1dp"
                 android:textColor="@color/colorWhite"

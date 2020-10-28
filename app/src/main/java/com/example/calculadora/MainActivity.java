@@ -32,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonPor;
     private Button buttonEntre;
     private Button buttonBorrar;
+    private Button buttonPunto;
+    private Button buttonIgual;
 
     //BOOLEANOS
     private boolean clickSignoMas;
     private boolean clickSignoMenos;
     private boolean clickSignoPor;
     private boolean clickSignoEntre;
+    private boolean clickPunto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String textAnterior = textResult.getText().toString();
                 textResult.setText(textAnterior + "0");
+                if (textAnterior.length() > 0) {
+                    clickSignoMas = false;
+                    clickSignoMenos = false;
+                    clickSignoPor = false;
+                    clickSignoEntre = false;
+                    if (textAnterior.charAt(textAnterior.length()-1) == '.') {
+                        clickPunto = true;
+                    }
+                    else {
+                        clickPunto = false;
+                    }
+                }
             }
         });
 
@@ -65,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 clickSignoMenos = false;
                 clickSignoPor = false;
                 clickSignoEntre = false;
+                if (textAnterior.charAt(textAnterior.length()-1) == '.') {
+                    clickPunto = true;
+                }
+                else {
+                    clickPunto = false;
+                }
             }
         });
 
@@ -182,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 clickSignoMenos = false;
                 clickSignoPor = false;
                 clickSignoEntre = false;
+                clickPunto = false;
             }
         });
 
@@ -197,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
                     clickSignoMenos = true;
                     clickSignoPor = true;
                     clickSignoEntre = true;
+                    clickPunto = false;
                 }
             }
         });
@@ -213,6 +236,8 @@ public class MainActivity extends AppCompatActivity {
                     clickSignoMenos = true;
                     clickSignoPor = true;
                     clickSignoEntre = true;
+                    clickPunto = false;
+
                 }
             }
         });
@@ -229,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
                     clickSignoMenos = true;
                     clickSignoPor = true;
                     clickSignoEntre = true;
+                    clickPunto = false;
                 }
             }
         });
@@ -245,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                     clickSignoMenos = true;
                     clickSignoPor = true;
                     clickSignoEntre = true;
+                    clickPunto = false;
                 }
             }
         });
@@ -258,7 +285,50 @@ public class MainActivity extends AppCompatActivity {
                 if (textAnterior.length() > 0) {
                     String nuevoTexto = textAnterior.substring(0, textAnterior.length()-1);
                     textResult.setText(nuevoTexto);
+                    if (textAnterior.charAt(textAnterior.length()-1) == '+'
+                            || textAnterior.charAt(textAnterior.length()-1) == '-'
+                            || textAnterior.charAt(textAnterior.length()-1) == 'x'
+                            || textAnterior.charAt(textAnterior.length()-1) == '÷') {
+                        clickSignoMas = false;
+                        clickSignoMenos = false;
+                        clickSignoPor = false;
+                        clickSignoEntre = false;
+                        clickPunto = true;
+                    }
+                    else if (textAnterior.charAt(textAnterior.length()-1) == '.') {
+                        clickPunto = false;
+                        clickSignoMas = false;
+                        clickSignoMenos = false;
+                        clickSignoPor = false;
+                        clickSignoEntre = false;
+                    }
                 }
+            }
+        });
+
+        //Evento Botón Punto
+        buttonPunto = findViewById(R.id.btnPunto);
+        buttonPunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
+                if (clickPunto == false) {
+                    textResult.setText(textAnterior + ".");
+                    clickPunto = true;
+                    clickSignoMas = true;
+                    clickSignoMenos = true;
+                    clickSignoPor = true;
+                    clickSignoEntre = true;
+                }
+            }
+        });
+
+        //Evento Botón Igual
+        buttonIgual = findViewById(R.id.btnIgual);
+        buttonIgual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String textAnterior = textResult.getText().toString();
             }
         });
     }

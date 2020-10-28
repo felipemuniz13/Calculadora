@@ -123,7 +123,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="x"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 android:layout_margin="1dp"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorOrange"
